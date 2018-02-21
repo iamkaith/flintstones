@@ -10,6 +10,8 @@ import { CartoonCharacter } from './cartoon-character';
 export class AppComponent {
   title = 'The Flintstones';
 
+  selected: CartoonCharacter;
+
   constructor() {}
 
   ngOnInit() {
