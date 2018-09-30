@@ -1,6 +1,8 @@
+// Internal
 import { Component } from '@angular/core';
 
-import { CartoonCharacter } from './cartoon-character';
+// External
+import { CartoonCharacter } from './model/cartoon-character';
 
 @Component({
   selector: 'app-root',

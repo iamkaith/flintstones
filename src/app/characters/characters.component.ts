@@ -1,6 +1,9 @@
+// External 
 import { Component, OnInit } from '@angular/core';
-import { CartoonCharacter } from '../cartoon-character';
-import { CharacterService } from '../character.service';
+
+// Internal
+import { CartoonCharacter } from '../model/cartoon-character';
+import { CharacterService } from '../services/character.service';
 import { Router } from '@angular/router';
 
 @Component({

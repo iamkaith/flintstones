@@ -1,4 +1,4 @@
-import {CartoonCharacter} from '../cartoon-character';
+import {CartoonCharacter} from '../model/cartoon-character';
 
 export const CHARACTERS: CartoonCharacter[] = [
   {"PersonId":1,"FirstName":"Fred","LastName":"Flintstone","Occupation":"Mining Manager","Gender":"M","Picture":"http://flintstones.zift.ca/images/flintstone/fred.png"},

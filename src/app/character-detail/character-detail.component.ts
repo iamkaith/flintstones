@@ -2,8 +2,8 @@ import { Component, OnInit, Input  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { CartoonCharacter } from '../cartoon-character'; 
-import { CharacterService } from '../character.service';
+import { CartoonCharacter } from '../model/cartoon-character'; 
+import { CharacterService } from '../services/character.service';
 
 @Component({
   selector: 'app-character-detail',

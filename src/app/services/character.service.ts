@@ -1,13 +1,14 @@
+// External
 import { Injectable } from '@angular/core';
-import { CartoonCharacter } from './cartoon-character';
-import { CHARACTERS } from './data/dummy-data';
-
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+// Internal
+import { CartoonCharacter } from '../model/cartoon-character';
+import { CHARACTERS } from '../data/dummy-data'
 
 @Injectable()
 export class CharacterService {
@@ -55,7 +56,13 @@ export class CharacterService {
 
   // READ
   getCharacter(id: number): Observable<CartoonCharacter> {
-    return of(CHARACTERS.find(character => character.PersonId === id ));
+    let url = `${this.BASE_URL}/${id}`;
+
+    return this.http.get(url)
+    .map((res: Response) => res.json())
+    .catch((error: any) => Observable.throw(error.json().error || `Can't get character data: ${id}`));
+    
+    //return of(CHARACTERS.find(character => character.PersonId === id ));
   }
 
   // UPDATE
