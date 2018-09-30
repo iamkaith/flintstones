@@ -1,9 +1,25 @@
-<h2>{{title}}</h2>
-<nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/characters">Characters</a>
-</nav>
+<!-- header -->
+<div class="jumbotron">
+    <h1 class="display-4">{{title}}</h1>
+    <p class="lead">Angular app with basic CRUD operations</p>
+</div>
 
-<br>
-<router-outlet></router-outlet>
-<app-character-detail [character]="selected"></app-character-detail>
+<!-- main body -->
+<div class="container-fluid">   
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">       
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard">Your Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/characters">Your Characters</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- switch between router links -->
+    <router-outlet></router-outlet>
+</div>

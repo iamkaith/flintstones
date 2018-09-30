@@ -1,5 +1,6 @@
-<div class="grid grid-pad">
-    <a  *ngFor="let c of characters" class="col-1-4" routerLink="/detail/{{c.PersonId}}">
+<div>
+    <h3>Select a character to see and edit their details</h3>
+    <a  *ngFor="let c of characters" routerLink="/detail/{{c.PersonId}}">
       <div>
           {{c.FirstName}} {{c.LastName}}
       </div>

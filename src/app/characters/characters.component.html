@@ -1,37 +1,35 @@
-<table *ngIf="characters" border="1">
-    <thead>
-      <tr>
-        <th>Person ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Occupation</th>
-        <th>Gender</th>
-        <th>Picture</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let c of characters; let i=index;" routerLink="/detail/{{c.PersonId}}" [class.selected]="c === selected" >
-        <td>{{c.PersonId}}</td>
-        <td>{{c.FirstName}}</td>
-        <td>{{c.LastName}}</td>
-        <td>{{c.Occupation}}</td>
-        <td>{{c.Gender}}</td>
-        <td><img src="{{c.Picture}}" alt="{{c.FirstName}} {{c.LastName}}" /></td>
-        <td><button class="delete" (click)="deleteCharacter(c); $event.stopPropagation()">x</button></td>
-      </tr>
-    </tbody>
+<table *ngIf="characters" class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Occupation</th>
+      <th>Gender</th>
+      <th>Picture</th>
+      <th>Add/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of characters; " routerLink="/detail/{{c.PersonId}}" [class.selected]="c === selected" >
+      <td>{{c.PersonId}}</td>
+      <td>{{c.FirstName}}</td>
+      <td>{{c.LastName}}</td>
+      <td>{{c.Occupation}}</td>
+      <td>{{c.Gender}}</td>
+      <td><img src="{{c.Picture}}" alt="{{c.FirstName}} {{c.LastName}}" class="img-thumbnail"/></td>
+      <td><button class="delete" (click)="deleteCharacter(c); $event.stopPropagation()" type="button" class="btn btn-danger">x</button></td>
+    </tr>
+    <tr>
+      <td><p>New</p></td>
+      <td><input [(ngModel)]="newCharacter.FirstName" size="10" placeholder="First Name"></td>
+      <td><input [(ngModel)]="newCharacter.LastName" size="10" placeholder="Last Name"></td>
+      <td><input [(ngModel)]="newCharacter.Occupation" size="10" placeholder="Occupation"></td>
+      <td><input [(ngModel)]="newCharacter.Gender" size="5" placeholder="Gender"></td>
+      <td><input [(ngModel)]="newCharacter.Picture" size="10" placeholder="URL"></td>
+      <td><button (click)="addCharacter(newCharacter);" type="button" class="btn btn-primary">Add</button></td>
+    </tr>
+  </tbody>
 </table>
-
-<div>
-  <p><label>First Name: </label><input [(ngModel)]="newCharacter.FirstName" placeholder="First Name"></p>
-  <p><label>Last Name: </label><input [(ngModel)]="newCharacter.LastName" placeholder="Last Name"></p>
-  <p><label>Occupation: </label><input [(ngModel)]="newCharacter.Occupation" placeholder="Occupation"></p>
-  <p><label>Gender: </label><input [(ngModel)]="newCharacter.Gender" placeholder="M or F"></p>
-  <p><label>Picture: </label><input [(ngModel)]="newCharacter.Picture" placeholder="Picture URL"></p>
-  <button (click)="addCharacter(newCharacter);">
-    Add
-  </button>
-</div>
-
 
 <app-character-detail [character]="selected"></app-character-detail>

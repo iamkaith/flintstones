@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CartoonCharacter } from './cartoon-character';
 import { CHARACTERS } from './data/dummy-data';
+
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Http, Response, Headers } from '@angular/http';
@@ -35,6 +36,7 @@ export class CharacterService {
   }
   */
   
+  // GET ALL
   getCharacters(): Observable<CartoonCharacter[]> {
     return this.http.get(this.BASE_URL)
       .map((res: Response) => res.json())
@@ -42,7 +44,7 @@ export class CharacterService {
   }   
 
   // CRUD OPERATIONS
-
+  // CREATE
   createCharacter(character: CartoonCharacter): Observable<CartoonCharacter> {
     let url = `${this.BASE_URL}`;
     
@@ -51,10 +53,12 @@ export class CharacterService {
       .catch((error :any) => Observable.throw(error.json().error || 'Adding new character error')); 
   }
 
+  // READ
   getCharacter(id: number): Observable<CartoonCharacter> {
     return of(CHARACTERS.find(character => character.PersonId === id ));
   }
 
+  // UPDATE
   updateCharacter(character: CartoonCharacter): Observable<CartoonCharacter> {   
     let url = `${this.BASE_URL}/${character.PersonId}`;
 
@@ -64,6 +68,7 @@ export class CharacterService {
 
   } 
 
+  // DELETE
   deleteCharacter(id: number): Observable<CartoonCharacter> {
     let url = `${this.BASE_URL}/${id}`;
 

@@ -1,19 +1,31 @@
-<div *ngIf="character">
-  <p>Person ID: {{character.PersonId}}</p>
-  <p>First Name: {{character.FirstName}}</p>
-  <p>Last Name: {{character.LastName}}</p>
-  <p>Occupation: {{character.Occupation}}</p>
-  <p>Gender: {{character.Gender}}</p>
-  <p>Picture: <img src="{{character.Picture}}" alt="{{character.FirstName}} {{character.LastName}}" /></p>
+<!-- view -->
+<div class="card" *ngIf="character">
+    <img class="card-img-top" src="{{character.Picture}}" alt="{{character.FirstName}} {{character.LastName}}"/>
+    <div class="card-body">    
+        <h3 class="card-title">View Character Details</h3>
+        <div class="card-text">
+            <p><strong>Person ID:</strong> {{character.PersonId}}</p>
+            <p><strong>First Name:</strong> {{character.FirstName}}</p>
+            <p><strong>Last Name:</strong> {{character.LastName}}</p>
+            <p><strong>Occupation:</strong> {{character.Occupation}}</p>
+            <p><strong>Gender:</strong> {{character.Gender}}</p>
+            <p><strong>Picture:</strong> {{character.Picture}}</p>  
+        </div>
+    </div>
+</div>
 
-  <div>
-    <p><label>First Name: </label><input [(ngModel)]="character.FirstName" placeholder="FirstName"></p>
-    <p><label>Last Name: </label><input [(ngModel)]="character.LastName" placeholder="LastName"></p>
-    <p><label>Occupation: </label><input [(ngModel)]="character.Occupation" placeholder="Occupation"></p>
-    <p><label>Gender: </label><input [(ngModel)]="character.Gender" placeholder="M or F"></p>
-    <p><label>Picture: </label><input [(ngModel)]="character.Picture" placeholder="Picture"></p>
-  </div>
-
-  <button (click)="goBack()">go back</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<button (click)="save()">Save</button> 
+<!-- edit -->
+<div *ngIf="character" class="card">
+  <div class="card-body">
+    <h3 class="card-title">Edit Character Details</h3>
+    <div class="card-text">
+        <p><label>First Name: </label><input [(ngModel)]="character.FirstName" size="20" placeholder="..."></p>
+        <p><label>Last Name: </label><input [(ngModel)]="character.LastName" size="20" placeholder="..."></p>
+        <p><label>Occupation: </label><input [(ngModel)]="character.Occupation" size="20"placeholder="..."></p>
+        <p><label>Gender: </label><input [(ngModel)]="character.Gender" size="5" placeholder="..."></p>
+        <p><label>Picture: </label><input [(ngModel)]="character.Picture" size="50" placeholder="..."></p>
+      </div>
+      <button (click)="goBack()" type="button" class="btn btn-primary">Back</button>
+      <button (click)="save()" type="button" class="btn btn-success">Save</button> 
+  </div>  
 </div>
